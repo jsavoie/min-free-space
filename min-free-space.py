@@ -1,14 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import os, sys
 
 def delete_oldest(directory):
 	os.chdir(directory)
 	files = filter(os.path.isfile, sorted(os.listdir(directory), key=os.path.getmtime))
 	if files:
-		print "Deleting file %s" % files[0]
+		print ("Deleting file %s" % files[0])
 		os.remove(files[0])
 	else:
-		print "Nothing to delete"
+		print ("Nothing to delete")
 		sys.exit(1)
 
 def get_used(filesystem):
